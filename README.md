@@ -18,3 +18,7 @@
 Instead of using a traditional layout, a game-like format was chosen to make the content easier to explore and more interesting for users. The top-down perspective allows users to easily navigate the environment and explore different sections by moving closer to objects where relevant information is displayed. The inclusion of interactive elements enhances user engagement by enabling users to actively explore and interact with the content instead of passively consuming information.
 
 Additionally, pixel art was used to create a simple yet visually appealing design. This style also gives a sense of nostalgia, which helps make the project more relatable and fun to explore. Overall, the design aims to provide a clear, interactive, and enjoyable way of presenting information about Computer Engineering.
+
+Further Improvements Possible Given More time:
+- Add minigames related to the selected field for the interactive part of the website
+- Add more content for the actual website
