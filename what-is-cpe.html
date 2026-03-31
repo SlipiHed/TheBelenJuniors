@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What is Computer Engineering?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="what-is-cpe.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-is-cpe.html" class="active">What is CPE?</a></li>
+        <li><a href="why-cpe.html">Why Choose CPE?</a></li>
+    </ul>
+</nav>
+
+<section class="hero fade">
+    <h1>SYSTEM <span>ARCHITECTURE</span></h1>
+    <p>
+        Computer Engineering (CPE) is the architectural bridge between Electrical Engineering 
+        and Computer Science, designing the heartbeat of modern technology.
+    </p>
+</section>
+
+<section class="section fade">
+    <div class="info-block">
+        <div class="accent-bar"></div>
+        <div class="info-content">
+            <h2>The Core Integration</h2>
+            <p>Computer Engineering integrates <strong>Hardware Design</strong> and <strong>Software Development</strong>. Unlike pure CS which focuses on algorithms, or pure EE which focuses on power, CPE lives in the intersection—ensuring that physical circuits and digital code work in perfect harmony.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section highlight fade">
+    <h2>Real-World Deployment</h2>
+    <div class="grid">
+        <div class="card">
+            <div class="card-icon"><span>📱</span></div>
+            <h3>Smart Devices</h3>
+            <p>From the silicon chips in your phone to the firmware in your smart watch.</p>
+            <div class="stat">EDGE COMPUTING</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><span>🤖</span></div>
+            <h3>Automation</h3>
+            <p>Designing the nervous systems for industrial robots and autonomous vehicles.</p>
+            <div class="stat">ROBOTICS</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><span>🌐</span></div>
+            <h3>Networking</h3>
+            <p>Building the high-speed infrastructure that keeps the global internet alive.</p>
+            <div class="stat">INFRASTRUCTURE</div>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><span>🧠</span></div>
+            <h3>AI Acceleration</h3>
+            <p>Developing specialized hardware to process neural networks at light speed.</p>
+            <div class="stat">AI HARDWARE</div>
+        </div>
+    </div>
+</section>
+
+<section class="section fade">
+    <h2>Specialized Domains</h2>
+    <div class="modern-list">
+        <div class="list-item">
+            <span class="code-text">0x01</span>
+            <strong>Embedded Systems:</strong> Designing dedicated computers for specific tasks inside larger mechanical systems.
+        </div>
+        <div class="list-item">
+            <span class="code-text">0x02</span>
+            <strong>VLSI Design:</strong> Creating very-large-scale integrated circuits (microchips) with billions of transistors.
+        </div>
+        <div class="list-item">
+            <span class="code-text">0x03</span>
+            <strong>Cybersecurity:</strong> Protecting the hardware layer and preventing system-level vulnerabilities.
+        </div>
+        <div class="list-item">
+            <span class="code-text">0x04</span>
+            <strong>Digital Signal Processing:</strong> Converting real-world signals (audio/video) into digital data.
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Ready to Initialize?</h2>
+    <a href="why-cpe.html" class="btn">VIEW THE JOURNEY →</a>
+</section>
+
+<script src="transition.js"></script>
+<div id="cpe-modal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-header">
+            <span class="status-dot"></span>
+            <h2 id="modal-title">SYSTEM_LOG</h2>
+        </div>
+        <div id="modal-body">
+            </div>
+        <div class="modal-footer">ACCESS_GRANTED_v2.0</div>
+    </div>
+</div>
+
+<script>
+    const cpeData = {
+        "Smart Devices": "Beyond smartphones, CPEs design the IoT (Internet of Things) ecosystem. This includes wearable medical sensors that predict heart issues and smart home processors that manage energy efficiency via machine learning.",
+        "Automation": "This sector involves the 'Nervous System' of industry. You'll learn to design PLCs and micro-controllers that run massive robotic assembly lines and the sensory-processing units used in autonomous drones.",
+        "Networking": "Focuses on the physical and logical layer of global communication. This includes designing 5G/6G hardware, high-speed fiber-optic switches, and the infrastructure that powers global cloud computing.",
+        "AI Acceleration": "Artificial Intelligence requires massive 'Compute.' Computer Engineers design specialized Tensor Processing Units (TPUs) and GPUs that allow neural networks to process billions of operations per second."
+    };
+
+    const modal = document.getElementById("cpe-modal");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            const key = card.querySelector('h3').innerText;
+            modalTitle.innerText = `SYS_ANALYSIS: ${key.toUpperCase()}`;
+            modalBody.innerText = cpeData[key] || "Initializing additional data streams...";
+            modal.style.display = "flex";
+        });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+</script>
+</body>
+</html>

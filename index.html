@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer Engineering</title>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="bg"></div>
+
+
+<div class="overlay">
+    <div class="overlay-box">
+        <h1 class="title">
+            COMPUTER <br>
+            <span>ENGINEERING</span>
+        </h1>
+
+        <p class="subtitle">
+            If you want to learn more, you can explore our mini-game or navigate through the options below 
+            to discover what Computer Engineering is and why you should choose it.
+        </p>
+
+        <div class="buttons">
+            <button class="start-btn" onclick="startGame()">PLAY MINIGAME</button>
+            <a href="what-is-cpe.html" class="nav-btn">WHAT IS CPE</a>
+            <a href="why-cpe.html" class="nav-btn">WHY CPE</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function startGame() {
+    alert("Minigame coming soon! 🚀");
+}
+</script>
+<div id="game-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="status-dot"></span>
+            <h2 class="modal-title">SYSTEM CHECK</h2>
+        </div>
+        <p class="modal-text">
+            This mini-game is optimized for <span class="highlight">DESKTOP</span> only. 
+            Mobile controls are not supported.
+        </p>
+        <p class="modal-question">DO YOU WISH TO PROCEED?</p>
+        
+        <div class="modal-buttons">
+            <a href="Game/index.html"><button class="confirm-btn" onclick="proceedToGame()">YES</button></a>
+            <button class="cancel-btn" onclick="closeModal()">NO</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Internal Script: Handles the modal logic
+    const modal = document.getElementById("game-modal");
+
+    function startGame() {
+        modal.style.display = "flex";
+    }
+
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    function proceedToGame() {
+        modal.style.display = "none";
+        // Logic for game transition
+        alert("Initializing Game Environment... 🚀");
+    }
+
+    // Close modal if user clicks outside the box
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+</body>
+</html>

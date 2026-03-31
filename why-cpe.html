@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Why Choose CPE? | The Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="why-cpe.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="what-is-cpe.html">What is CPE?</a></li>
+        <li><a href="why-cpe.html" class="active">Why Choose CPE?</a></li>
+    </ul>
+</nav>
+
+<section class="hero fade">
+    <h1>WHY CHOOSE <span>CPE?</span></h1>
+    <p>Computer Engineering empowers you to become an innovator, problem solver, and leader in a technology-driven world.</p>
+</section>
+
+<section class="section journey-section fade">
+    <h2>🎓 Your Journey as a CPE Student</h2>
+    <p class="section-desc">Experience a specialized progression from foundational logic to advanced system mastery.</p>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="year-accent">01</div>
+            <div class="content">
+                <h3>1st Year: Fundamentals</h3>
+                <p>Mastering the core: Advanced Mathematics, Logic Formulation, and Programming Basics.</p>
+                <div class="tag">MATH & LOGIC</div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year-accent">02</div>
+            <div class="content">
+                <h3>2nd Year: Circuits & Systems</h3>
+                <p>Moving into the physical: Electronic Circuits, Digital Logic Design, and Signal Processing.</p>
+                <div class="tag">HARDWARE</div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year-accent">03</div>
+            <div class="content">
+                <h3>3rd Year: Embedded Systems & Networking</h3>
+                <p>The bridge: Microprocessors, Data Communications, and Hardware-Software integration.</p>
+                <div class="tag">NETWORKING</div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="year-accent">04</div>
+            <div class="content">
+                <h3>4th Year: Projects & Specialization</h3>
+                <p>The final stage: Capstone Thesis, AI implementation, and Advanced Robotics.</p>
+                <div class="tag">MASTERY</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section highlight fade">
+    <h2>🚀 Key Advantages</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>High Demand</h3>
+            <p>Critical expertise needed across tech, healthcare, and finance industries.</p>
+            <div class="stat">STABLE CAREER</div>
+        </div>
+        <div class="card">
+            <h3>Hybrid Expertise</h3>
+            <p>Mastery of both hardware and software gives you a distinct competitive edge.</p>
+            <div class="stat">HYBRID</div>
+        </div>
+        <div class="card">
+            <h3>Future Ready</h3>
+            <p>Perfectly positioned for AI, IoT, robotics, and emerging technologies.</p>
+            <div class="stat">AI / ROBOTICS</div>
+        </div>
+        <div class="card">
+            <h3>Global Scope</h3>
+            <p>Engineering standards are universal; work anywhere in the world.</p>
+            <div class="stat">GLOBAL</div>
+        </div>
+    </div>
+</section>
+
+<section class="section fade">
+    <h2>💡 Skills You’ll Gain</h2>
+    <div class="grid">
+        <div class="card skill-card">
+            <h3>Programming</h3>
+            <p>Mastering multiple languages and software frameworks.</p>
+        </div>
+        <div class="card skill-card">
+            <h3>Electronics</h3>
+            <p>Designing circuits and complex embedded systems.</p>
+        </div>
+        <div class="card skill-card">
+            <h3>Logic</h3>
+            <p>Analyzing complex systems to find innovative solutions.</p>
+        </div>
+        <div class="card skill-card">
+            <h3>Leadership</h3>
+            <p>Managing tech projects and diverse engineering teams.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section highlight fade">
+    <h2>🌍 Impact on Society</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Sustainability</h3>
+            <p>Creating energy-efficient systems to protect the environment.</p>
+            <div class="stat">GREEN TECH</div>
+        </div>
+        <div class="card">
+            <h3>Healthcare</h3>
+            <p>Improving lives through AI diagnostics and medical devices.</p>
+            <div class="stat">MED-TECH</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Ready to Initialize?</h2>
+    <a href="index.html" class="btn">BACK TO HOME</a>
+</section>
+
+<script src="transition.js"></script>
+<div id="modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title">DATA ACCESS</h2>
+        <div id="modal-body">
+            </div>
+    </div>
+</div>
+
+<script>
+    // Data for the expansions
+    const details = {
+        "High Demand": "The digital transformation of global industries has created a massive deficit in hardware-software specialists. CPEs are currently the #1 recruited major for firmware and system architecture roles.",
+        "Hybrid Expertise": "You don't just write code; you understand how the electrons move through the silicon. This dual-threat capability allows you to optimize systems in ways a pure CS or EE major cannot.",
+        "Future Ready": "AI and Robotics require hardware that can 'think.' Computer Engineers design the Neural Processing Units (NPUs) that make modern AI possible.",
+        "Global Scope": "Engineering logic is a universal language. Your degree allows you to work in Silicon Valley, Tokyo, Berlin, or remotely for any tech giant worldwide."
+    };
+
+    const modal = document.getElementById("modal-overlay");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBody = document.getElementById("modal-body");
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            const title = card.querySelector('h3').innerText;
+            modalTitle.innerText = title;
+            modalBody.innerText = details[title] || "Detailed system logs for this sector are currently being initialized...";
+            modal.style.display = "flex";
+        });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Lively: Added slow background shifting animation */
+    background: #0a0f1f;
+    background-image: linear-gradient(180deg, #0a0f1f 0%, #1a2a44 50%, #0a0f1f 100%);
+    background-size: 100% 200%;
+    animation: bgShift 15s ease infinite;
+    
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background Animation */
+@keyframes bgShift {
+    0% { background-position: 50% 0%; }
+    50% { background-position: 50% 100%; }
+    100% { background-position: 50% 0%; }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #ffd700;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffd700;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: white;
+    text-shadow: 0 0 10px #ffd700;
+}
+
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    position: relative; /* For scanline */
+}
+
+/* Lively: CRT Scanline effect on hero */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(255,255,255,0) 50%, rgba(255,215,0,0.03) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+}
+
+.hero h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.hero span {
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+.hero p {
+    max-width: 800px;
+    font-size: 18px;
+    color: #bdc3c7;
+}
+
+.section {
+    padding: 80px 10%;
+}
+
+.section h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffd700;
+    font-size: 22px;
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* SMOOTH INFO BLOCK */
+.info-block {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.accent-bar {
+    width: 15px;
+    background: #ffd700;
+    /* Lively: Accent bar pulses */
+    animation: accentPulse 2s ease-in-out infinite;
+}
+
+@keyframes accentPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+.info-content {
+    padding: 40px;
+}
+
+.info-content h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* SMOOTH CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(13, 27, 42, 0.8);
+    padding: 30px;
+    border-radius: 20px; /* Smooth Edges */
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    /* Lively: Float animation */
+    animation: itemFloat 6s ease-in-out infinite;
+}
+
+/* Staggered float for grid cards */
+.card:nth-child(1) { animation-delay: 0s; }
+.card:nth-child(2) { animation-delay: 0.5s; }
+.card:nth-child(3) { animation-delay: 1s; }
+.card:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes itemFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.card:hover {
+    transform: translateY(-15px) !important; /* Override float */
+    border-color: #ffd700;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card-icon span {
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+
+/* Lively: Icon spins slowly on card hover */
+.card:hover .card-icon span {
+    transform: rotateY(360deg);
+}
+
+.card h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.stat {
+    margin-top: 20px;
+    font-size: 10px;
+    background: #ffd700;
+    color: black;
+    padding: 5px 12px;
+    border-radius: 50px; /* Smooth Tag */
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* MODERN LIST */
+.modern-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.list-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+.list-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateX(5px);
+    border-color: rgba(255,255,255,0.1);
+}
+
+.code-text {
+    color: #ffd700;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    margin-right: 15px;
+    text-shadow: 0 0 5px #ffd700;
+}
+
+/* Lively: Highlight section has a faint pulsing glow */
+.highlight {
+    background: rgba(30, 60, 114, 0.1);
+    box-shadow: 0 0 30px rgba(30, 60, 114, 0.2) inset;
+}
+
+.cta {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.btn {
+    font-family: 'Press Start 2P', cursive;
+    text-decoration: none;
+    background: #ffd700;
+    color: black;
+    padding: 20px 40px;
+    font-size: 12px;
+    border-radius: 50px; /* Smooth Button */
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: white;
+    box-shadow: 0 0 25px #ffd700;
+    transform: scale(1.05);
+}
+
+.fade {
+    opacity: 1; /* Script handles this */
+}
+
+/* SMOOTH EDGES & LIVELY ANIMATIONS */
+.card {
+    background: rgba(13, 27, 42, 0.8);
+    border-radius: 20px; /* Smooth Edges */
+    padding: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Lively: Floating movement */
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.card:hover {
+    transform: scale(1.05) translateY(-5px) !important;
+    border-color: #ffd700;
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
+}
+
+/* MODAL / EXPANSION BOX */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #0a0f1f;
+    width: 90%;
+    max-width: 550px;
+    padding: 40px;
+    border-radius: 25px; /* Smooth corners */
+    border: 2px solid #ffd700;
+    position: relative;
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+    animation: openSystem 0.3s ease-out;
+}
+
+@keyframes openSystem {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+#modal-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: #ffd700;
+    text-align: left; /* Overriding center h2 */
+    margin-bottom: 0;
+}
+
+#modal-body {
+    font-size: 17px;
+    color: #bdc3c7;
+    line-height: 1.8;
+}
+
+.modal-footer {
+    margin-top: 25px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: rgba(255, 215, 0, 0.4);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 28px;
+    color: #ffd700;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: white;
+}
